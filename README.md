@@ -94,6 +94,19 @@ La aplicación no usa contraseñas ni claves, así que no hay secretos que confi
 2. Crea un usuario y un producto (POST), y después un pedido de 2 unidades: el total sale 11.0 y el stock baja de 10 a 8.
 3. El contenedor no se ejecuta como root: `docker exec paula-api whoami` devuelve `appuser`.
 
+## Endpoints
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| POST | `/usuarios` | Registra un cliente o un administrador |
+| GET | `/usuarios` | Lista los usuarios |
+| GET | `/usuarios/{usuario_id}` | Obtiene un usuario |
+| POST | `/productos` | Crea un producto (generico, electronico o ropa) |
+| GET | `/productos` | Lista los productos |
+| GET | `/productos/{producto_id}` | Obtiene un producto |
+| DELETE | `/productos/{producto_id}` | Elimina un producto |
+| POST | `/pedidos` | Crea un pedido y descuenta el stock |
+| GET | `/usuarios/{cliente_id}/pedidos` | Pedidos de un cliente, por fecha |
+
 ## Flujo de trabajo con Git
 - `main`: rama estable y protegida. Solo recibe cambios mediante Pull Request.
 - `feature/`: una rama por tarea (`feature/docs`, `feature/docker`).
